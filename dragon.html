@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<!--
+    Author:  Kwintyn Porter
+-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Dragon Attack</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script> 
+        <script src="dragon.js"></script>
+        <link rel = "stylesheet" href="style.css"
+        
+    </head>
+    <body onload="initApplication()">
+        <h1 align="center">Dragon Attack</h1> 
+            <button class="center main" type="button" size="30" onclick="initVidRequest()">Request your video. </button><br><br>
+            <br><br>
+            <table>
+            <tr>
+                <td>Name:</td>
+                <td> 
+                    <input id="nameID" type="text" value="" size="50">
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <button type="button" class="button" onclick="previous()">Previous</button>
+        <button type="button" class="button" autofocus onclick="next()">Next</button><br><br>
+        <p id="statusID"></p>
+        <br><br><hr>
+        <h3> Now attack the dragon. </h3>
+        <style type="text/css"> 
+            *
+            { 
+                margin: 0px; 
+                padding: 0px;
+            }
+        
+            .dragzone, .dropzone
+            { 
+                height: 400px; 
+                width: 40%;
+                border: 0px; 
+                float: left; 
+                margin-top: 150px; 
+                margin-left: 10%;  
+            }
+        
+            </style> 
+        <body> 
+        
+                <div class="dropzone" ondragover="allowDrop(event)" ondrop=drop(event)"> 
+        
+                    </div>  
+            <div class="dragzone"> 
+        
+                <img src="sword.png" id="dragelement" height= "300px" ondragstart="dragStart(event)"> 
+            </div>        
+        <script type="text/javascript">
+            function clickAllower(el) {  
+                do { el = el.nextSibling } while (el && el.nodeType !== 1);
+                    return el;
+            }
+        </script>
+        <div onclick="clickAllower(this).style.display='block'; this.style.display='none'">
+            <img src="dragonclicker.png" class="dragoncenter main" alt="" style="cursor: pointer" />
+        </div>
+        <div style="display: none">
+            <iframe class="video" width="650" height="448" src="https://www.youtube.com/embed/CbwYZCga50U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+            </div> 
+        <h3> Crowd not cheering? Make them!</h3>
+        <script> 
+        function play(){ 
+            var audio = document.getElementById("audio"); 
+            audio.play(); 
+        }
+        </script> 
+        <input type="button" value="play" onclick="play()"> 
+        <audio id="audio" src="cheer.mp3"></audio> 
+<br><br><hr> 
+        URLs:<p id="indexID"></p>
+        Names:<p id="linksID"></p>
+        <audio autoplay loop> 
+                <source src="cheer.mp3"> 
+            </audio>
+    </body>
+</html>
